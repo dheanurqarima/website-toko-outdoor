@@ -26,15 +26,54 @@
         <a href="#home">Home</a>
         <a href="#about">Tentang Kami</a>
         <a href="#menu">Daftar Harga</a>
+        <a href="#product">Produk</a>
         <a href="#contact">Kontak</a>
       </div>
 
       <!-- Navigasi icon untuk tombol menu -->
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="#" id="search-btn"><i data-feather="search"></i></a>
+        <a href="#" id="shopping-cart-btn"
+          ><i data-feather="shopping-cart"></i
+        ></a>
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
+
+      <!-- Search Form Start -->
+      <div class="search-form">
+        <input type="search" id="search-box" placeholder="Search Here..." />
+        <label for="search-box"><i data-feather="search"></i></label>
+      </div>
+      <!-- Search Form end -->
+
+      <!-- Shopping Cart Start -->
+      <div class="shopping-cart">
+        <div class="cart-item">
+          <img src="img/produk/daypack.jpeg" alt="Product 1" />
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 20k</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+        <div class="cart-item">
+          <img src="img/produk/daypack.jpeg" alt="Product 1" />
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 20k</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+        <div class="cart-item">
+          <img src="img/produk/daypack.jpeg" alt="Product 1" />
+          <div class="item-detail">
+            <h3>Product 1</h3>
+            <div class="item-price">IDR 20k</div>
+          </div>
+          <i data-feather="trash-2" class="remove-item"></i>
+        </div>
+      </div>
+      <!-- Shopping Cart End -->
     </nav>
     <!-- Navbar end -->
 
@@ -142,6 +181,88 @@
     </section>
     <!-- Menu Section End -->
 
+    <!-- Product Section Start  -->
+    <section id="product" class="product">
+      <h2><span>Produk Unggulan</span> kami</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci cum
+        reprehenderit eveniet sapiente pastinya murah.
+      </p>
+
+      <div class="row">
+        <div class="product-card">
+          <div class="product-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-btn"><i data-feather="eye"></i></a>
+          </div>
+
+          <div class="product-img">
+            <img src="img/produk/daypack.jpeg" alt="Product 1" />
+          </div>
+
+          <div class="product-content">
+            <h3>DayPack 20 Liter</h3>
+
+            <div class="product-stars">
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+            </div>
+            <div class="product-price">IDR 20K <span>IDR 30k</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-btn"><i data-feather="eye"></i></a>
+          </div>
+
+          <div class="product-img">
+            <img src="img/produk/daypack.jpeg" alt="Product 1" />
+          </div>
+
+          <div class="product-content">
+            <h3>DayPack 20 Liter</h3>
+
+            <div class="product-stars">
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star" class="star-full"></i>
+              <i data-feather="star"></i>
+            </div>
+            <div class="product-price">IDR 20K <span>IDR 30k</span></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-icons">
+            <a href="#"><i data-feather="shopping-cart"></i></a>
+            <a href="#" class="item-detail-btn"><i data-feather="eye"></i></a>
+          </div>
+
+          <div class="product-img">
+            <img src="img/produk/daypack.jpeg" alt="Product 1" />
+          </div>
+
+          <div class="product-content">
+            <h3>DayPack 20 Liter</h3>
+
+            <div class="product-stars">
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+            </div>
+            <div class="product-price">IDR 20K <span>IDR 40k</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Product Section End  -->
+
     <!-- Contact Section start -->
     <section id="contact" class="contact">
       <h2><span>Kontak</span> Kami</h2>
@@ -200,6 +321,37 @@
       </div>
     </footer>
     <!-- Footer Section end -->
+
+    <!-- Modal Box item Detail start -->
+    <div class="modal" id="item-detail-modal">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img src="img/produk/daypack.jpeg" alt="Produk 1" />
+          <div class="product-content">
+            <h3>DayPack 20 Liter</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Laboriosam asperiores, omnis, commodi cum nam nulla cumque eius
+              vitae, unde at debitis aliquam quia veritatis iure.
+            </p>
+            <div class="product-stars">
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+              <i data-feather="star"></i>
+            </div>
+            <div class="product-price">IDR 20K <span>IDR 40k</span></div>
+            <a href="#">
+              <i data-feather="shopping-cart"></i>
+              <span>Add to Shopping Cart</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Box item start -->
 
     <!-- Feather Icon -->
     <script>
