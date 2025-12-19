@@ -23,7 +23,12 @@ const shoppingCart = document.querySelector(".shopping-cart");
 document.querySelector("#shopping-cart-btn").onclick = (e) => {
   shoppingCart.classList.toggle("active");
   e.preventDefault();
+  e.stopPropagation();
 };
+
+shoppingCart.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
 
 //klik diluar elemen untuk menutup elemen
 const hamburger = document.querySelector("#hamburger-menu");
