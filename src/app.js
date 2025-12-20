@@ -8,6 +8,19 @@ document.addEventListener("alpine:init", () => {
       { id: 4, name: "Headlamp baterai", img: "headlamp.jpeg", price: 5000 },
       { id: 5, name: "Topi Rimba", img: "topi.jpeg", price: 12000 },
     ],
+    // STATE MODAL
+    openModal: false,
+    activeItem: null,
+
+    showDetail(item) {
+      this.activeItem = item;
+      this.openModal = true;
+    },
+
+    closeModal() {
+      this.openModal = false;
+      this.activeItem = null;
+    },
   }));
 
   // STORE CART

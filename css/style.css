@@ -142,10 +142,11 @@ body {
   right: -100%;
   width: 35rem;
   background-color: #fff;
-  height: 100vh;
+  height: 120vh;
   padding: 0 1.5rem;
   color: var(--bg);
   transition: 0.3s linear;
+  overflow-y: auto;
 }
 
 .shopping-cart.active {
@@ -664,10 +665,6 @@ footer .credit a {
 .modal-content .product-price {
   font-size: 1.2rem;
   margin-top: 0.5rem;
-}
-
-.modal-content .product-price span {
-  text-decoration: line-through;
 }
 
 .modal-content a {

@@ -48,30 +48,60 @@ document.addEventListener("click", function (e) {
 });
 
 // modal box toggle active
-const itemDetailModal = document.querySelector("#item-detail-modal");
-const itemDetailBtns = document.querySelectorAll(".item-detail-btn");
+// const itemDetailModal = document.querySelector("#item-detail-modal");
+// const itemDetailBtns = document.querySelectorAll(".item-detail-btn");
 
-itemDetailBtns.forEach((btn) => {
-  btn.onclick = (e) => {
-    itemDetailModal.style.display = "flex";
-    e.preventDefault();
-  };
-});
+// itemDetailBtns.forEach((btn) => {
+//   btn.onclick = (e) => {
+//     itemDetailModal.style.display = "flex";
+//     e.preventDefault();
+//   };
+// });
 
-itemDetailBtns.onclick = (e) => {
-  itemDetailModal.style.display = "flex";
-  e.preventDefault();
-};
+// itemDetailBtns.onclick = (e) => {
+//   itemDetailModal.style.display = "flex";
+//   e.preventDefault();
+// };
 
-//klik tombol close
-document.querySelector(".modal .close-icon").onclick = (e) => {
-  itemDetailModal.style.display = "none";
-  e.preventDefault();
-};
+// // klik tombol close
+// document.querySelector(".modal .close-icon").onclick = (e) => {
+//   itemDetailModal.style.display = "none";
+//   e.preventDefault();
+// };
 
-//klik diluar container modal
-window.onclick = (e) => {
-  if (e.target === itemDetailModal) {
-    itemDetailModal.style.display = "none";
-  }
-};
+// // klik diluar container modal
+// window.onclick = (e) => {
+//   if (e.target === itemDetailModal) {
+//     itemDetailModal.style.display = "none";
+//   }
+// };
+
+// const itemDetailModal = document.querySelector(".modal");
+// const itemDetailBtns = document.querySelectorAll(".item-detail-btn");
+// const closeIcon = document.querySelector(".modal .close-icon");
+
+// // buka modal
+// itemDetailBtns.forEach((btn) => {
+//   btn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     itemDetailModal.style.display = "flex";
+//   });
+// });
+
+// // // tutup modal (tombol X)
+// closeIcon.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   itemDetailModal.style.display = "none";
+// });
+
+// // klik di luar modal-container
+// window.addEventListener("click", (e) => {
+//   if (e.target === itemDetailModal) {
+//     itemDetailModal.style.display = "none";
+//   }
+// });
+
+// // cegah klik di dalam modal menutup modal
+// document.querySelector(".modal-container").addEventListener("click", (e) => {
+//   e.stopPropagation();
+// });
