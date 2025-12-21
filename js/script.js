@@ -5,6 +5,7 @@ const navbarNav = document.querySelector(".navbar-nav");
 document.querySelector("#hamburger-menu").onclick = (e) => {
   navbarNav.classList.toggle("active");
   e.preventDefault();
+  e.stopPropagation();
 };
 
 //toggle active untuk search form
@@ -15,6 +16,7 @@ document.querySelector("#search-btn").onclick = (e) => {
   searchForm.classList.toggle("active");
   searchBox.focus();
   e.preventDefault();
+  e.stopPropagation();
 };
 
 //toggle active untuk shopping cart
@@ -44,6 +46,31 @@ document.addEventListener("click", function (e) {
   }
   if (!shoppingBtn.contains(e.target) && !shoppingCart.contains(e.target)) {
     shoppingCart.classList.remove("active");
+  }
+});
+
+const modal = document.querySelector("#item-detail-modal");
+const closeBtn = modal.querySelector(".close-icon");
+
+// buka modal
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(".item-detail-btn");
+  if (!btn) return;
+
+  e.preventDefault();
+  modal.classList.add("active");
+});
+
+// tutup modal
+closeBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  modal.classList.remove("active");
+});
+
+// klik overlay
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) {
+    modal.classList.remove("active");
   }
 });
 

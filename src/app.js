@@ -13,13 +13,9 @@ document.addEventListener("alpine:init", () => {
     activeItem: null,
 
     showDetail(item) {
+      console.log("DETAIL:", item);
       this.activeItem = item;
       this.openModal = true;
-    },
-
-    closeModal() {
-      this.openModal = false;
-      this.activeItem = null;
     },
   }));
 

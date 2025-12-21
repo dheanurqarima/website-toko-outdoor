@@ -75,10 +75,20 @@ body {
 .navbar .navbar-extra a {
   color: #fff;
   margin: 0 0.5rem;
+  position: relative;
+  z-index: 1100;
 }
 
-.navbar .navbar-extra a :hover {
+.navbar .navbar-extra a:hover {
   color: var(--primary);
+}
+
+.navbar .navbar-extra a svg {
+  stroke: #fff;
+}
+
+.navbar .navbar-extra a:hover svg {
+  stroke: var(--primary);
 }
 
 #hamburger-menu {
@@ -393,10 +403,11 @@ body {
 
 .about .row .conten p {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 200;
   line-height: 1.8;
-  max-width: 30rem;
+  max-width: 25rem;
+  max-height: 50%;
 }
 
 /* Menu Section */
@@ -612,6 +623,10 @@ footer .credit a {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.modal.active {
+  display: flex;
+}
+
 .modal .modal-container {
   position: relative;
   background-color: #fefefe;
@@ -619,7 +634,7 @@ footer .credit a {
   margin: 15% auto;
   padding: 1.2rem;
   border: 1px solid #666;
-  width: 75%;
+  width: 70%;
   animation: animateModal 1s;
 }
 
@@ -654,8 +669,12 @@ footer .credit a {
 
 .modal-content p {
   font-size: 1.2rem;
+  color: #010101;
+  font-weight: 200;
   line-height: 1.8rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 90%;
 }
 
 .modal-content .product-stars {
@@ -670,8 +689,9 @@ footer .credit a {
 .modal-content a {
   display: flex;
   gap: 1rem;
-  width: 17rem;
+  max-width: 100%;
   align-items: center;
+  text-align: center;
   background-color: var(--primary);
   color: #fff;
   margin-top: 1rem;

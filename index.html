@@ -38,16 +38,46 @@
 
       <!-- Navigasi icon untuk tombol menu -->
       <div class="navbar-extra" x-data>
-        <a href="#" id="search-btn"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart-btn"
-          ><i data-feather="shopping-cart"></i>
+        <a href="#" id="search-btn">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <use href="img/feather-sprite.svg#search" />
+            </svg>
+          </a>
+        <a href="#" id="shopping-cart-btn">
+          <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <use href="img/feather-sprite.svg#shopping-cart" />
+          </svg>
           <span
             class="quantity-bedge"
             x-show="$store.cart.quantity"
             x-text="$store.cart.quantity"
           ></span>
         </a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        <a href="#" id="hamburger-menu"><svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <use href="img/feather-sprite.svg#menu" />
+            </svg>
+          </a>
       </div>
 
       <!-- Search Form Start -->
@@ -128,6 +158,21 @@
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi
             minima labore maxime asperiores laborum?
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex,
+            commodi? Quae modi asperiores mollitia at amet autem maxime sequi
+            molestias.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex,
+            commodi? Quae modi asperiores mollitia at amet autem maxime sequi
+            molestias.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex,
+            commodi? Quae modi asperiores mollitia at amet autem maxime sequi
+            molestias.
           </p>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex,
@@ -316,12 +361,9 @@
             </div>
           </div>
         </template>
+
           <!-- Modal Box item Detail start -->
-        <div class="modal" id="item-detail-modal"   x-cloak
-          x-show="openModal"
-          x-transition
-          @click.outside="closeModal()"
-          @keydown.escape.window="closeModal()">
+        <div class="modal" id="item-detail-modal">
           <div class="modal-container">
             <a href="#" class="close-icon" @click.prevent="closeModal()">
               <svg
@@ -346,8 +388,7 @@
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Laboriosam asperiores, omnis, commodi cum nam nulla cumque eius
-                vitae, unde at debitis aliquam quia veritatis iure.
-              </p>
+                vitae, unde at debitis aliquam quia veritatis iure. anti-air, anti-dingin, dan anti-angin. miliki sekarang!</p>
               <div class="product-price"><h3><span x-text="$store.cart.rupiah(activeItem.price)">
               </span></h3>
               </div>
@@ -370,7 +411,7 @@
           </div>
         </div>
     <!-- Modal Box item end -->
-    </section>
+      </section>
     <!-- Product Section End  -->
 
     <!-- Contact Section start -->
