@@ -1,5 +1,7 @@
 document.addEventListener("alpine:init", () => {
-  // COMPONENT PRODUCTS
+  /* ===============================
+     COMPONENT PRODUCTS
+  =============================== */
   Alpine.data("products", () => ({
     items: [
       { id: 1, name: "DayPack 20 Liter", img: "DayPack.jpeg", price: 20000 },
@@ -8,33 +10,28 @@ document.addEventListener("alpine:init", () => {
       { id: 4, name: "Headlamp baterai", img: "headlamp.jpeg", price: 5000 },
       { id: 5, name: "Topi Rimba", img: "topi.jpeg", price: 12000 },
     ],
-    // STATE MODAL
     openModal: false,
     activeItem: null,
 
     showDetail(item) {
-      console.log("DETAIL:", item);
       this.activeItem = item;
       this.openModal = true;
     },
   }));
 
-  // STORE CART
+  /* ===============================
+     STORE CART
+  =============================== */
   Alpine.store("cart", {
     items: [],
     total: 0,
     quantity: 0,
 
-    // TAMBAH ITEM
     add(newItem) {
-      const cartItem = this.items.find((item) => item.id === newItem.id);
+      const cartItem = this.items.find((i) => i.id === newItem.id);
 
       if (!cartItem) {
-        this.items.push({
-          ...newItem,
-          quantity: 1,
-          total: newItem.price,
-        });
+        this.items.push({ ...newItem, quantity: 1, total: newItem.price });
       } else {
         cartItem.quantity++;
         cartItem.total = cartItem.price * cartItem.quantity;
@@ -44,24 +41,21 @@ document.addEventListener("alpine:init", () => {
       this.total += newItem.price;
     },
 
-    // HAPUS ITEM
     remove(id) {
-      const cartItem = this.items.find((item) => item.id === id);
-
+      const cartItem = this.items.find((i) => i.id === id);
       if (!cartItem) return;
 
       if (cartItem.quantity > 1) {
         cartItem.quantity--;
         cartItem.total -= cartItem.price;
       } else {
-        this.items = this.items.filter((item) => item.id !== id);
+        this.items = this.items.filter((i) => i.id !== id);
       }
 
       this.quantity--;
       this.total -= cartItem.price;
     },
 
-    // FORMAT RUPIAH
     rupiah(number) {
       return new Intl.NumberFormat("id-ID", {
         style: "currency",
@@ -69,6 +63,72 @@ document.addEventListener("alpine:init", () => {
         minimumFractionDigits: 0,
       }).format(number);
     },
+  });
+
+  /* ===============================
+     FORM VALIDATION
+  =============================== */
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  const form = document.querySelector("#checkoutForm");
+
+  checkoutBtn.disabled = true;
+
+  form.addEventListener("keyup", () => {
+    let allFilled = true;
+
+    for (const el of form.elements) {
+      if (el.tagName === "INPUT" && el.type !== "hidden") {
+        if (el.value.trim() === "") {
+          allFilled = false;
+          break;
+        }
+      }
+    }
+
+    checkoutBtn.disabled = !allFilled;
+    checkoutBtn.classList.toggle("disabled", !allFilled);
+  });
+
+  /* ===============================
+     FORMAT PESAN WHATSAPP
+  =============================== */
+  const formatMessage = (obj) => {
+    const cart = Alpine.store("cart");
+
+    return `Data Customer \n
+Nama: ${obj.name}
+Email: ${obj.email}
+No HP: ${obj.phone}
+
+Data Pesanan
+${JSON.parse(obj.items)
+  .map(
+    (item) =>
+      `${item.name} (${item.quantity} * ${cart.rupiah(
+        item.price
+      )} = ${cart.rupiah(item.total)})\n`
+  )
+  .join("")}
+TOTAL: ${cart.rupiah(obj.total)}
+Terima Kasih.`;
+  };
+
+  /* ===============================
+     KIRIM KE WHATSAPP
+  =============================== */
+  checkoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (checkoutBtn.disabled) return;
+
+    const formData = new FormData(form);
+    const objData = Object.fromEntries(formData);
+
+    const message = formatMessage(objData);
+
+    window.open(
+      "https://wa.me/6285141336525?text=" + encodeURIComponent(message),
+      "_blank"
+    );
   });
 });
 
